@@ -414,7 +414,13 @@
         <h2>RSVP</h2>
         <p class="muted">Let us know if you can make it.</p>
 
-        <form id="rsvpForm" style="margin-top:16px">
+        <form id="rsvpForm"
+      name="rsvp"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="website"
+      style="margin-top:16px">
+  <input type="hidden" name="form-name" value="rsvp">
           <div class="grid">
             <label>
               <span>Name *</span>
@@ -571,28 +577,53 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       statusEl.textContent = "";
-
+    
       const fd = new FormData(form);
-      if (fd.get("website")) { statusEl.textContent = "Spam detected."; return; }
-
+    
+      // Honeypot anti-spam
+      if (fd.get("website")) {
+        statusEl.textContent = "Spam detected.";
+        return;
+      }
+    
+      // Basic validation
       const name = (fd.get("name") || "").toString().trim();
       const attending = (fd.get("attending") || "").toString().trim();
-      if (!name || !attending) { statusEl.textContent = "Please fill in the required fields."; return; }
-
+      if (!name || !attending) {
+        statusEl.textContent = "Please fill in the required fields.";
+        return;
+      }
+    
       btn.setAttribute("aria-busy", "true");
-      try{
-        // TODO: send to EmailJS/Formspree/your backend here
-        await new Promise(r => setTimeout(r, 650));
+    
+      try {
+        // Netlify expects URL-encoded form data
+        const body = new URLSearchParams();
+        for (const [k, v] of fd.entries()) body.append(k, v);
+    
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString()
+        });
+    
+        if (!res.ok) {
+          statusEl.textContent = "Could not send RSVP. Please try again.";
+          return;
+        }
+    
         statusEl.textContent = "Thanks! Your RSVP has been received.";
         form.reset();
-      }catch(err){
-        statusEl.textContent = "Could not send RSVP. Please try again.";
-      }finally{
+      } catch (err) {
+        statusEl.textContent = "Network error. Please try again.";
+      } finally {
         btn.removeAttribute("aria-busy");
       }
     });
+
   </script>
 </body>
 </html>
+
 
 
