@@ -424,86 +424,6 @@
   100%{ transform: translateY(0) scale(1.02); }
 }
 
-    .intro.is-done{opacity:0; visibility:hidden; pointer-events:none;}
-    .envelope{
-      width:min(520px, 92vw);
-      aspect-ratio: 16/10;
-      position:relative;
-      transform: translateY(8px);
-      filter: drop-shadow(0 26px 60px rgba(0,0,0,.7));
-    }
-    .env-body{
-      position:absolute; inset:0;
-      border-radius:22px;
-      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(10px);
-      overflow:hidden;
-    }
-    .env-paper{
-      position:absolute;
-      left:18px; right:18px;
-      bottom:16px;
-      height:72%;
-      border-radius:16px;
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.80));
-      color:#0b0d12;
-      padding:18px 18px 14px;
-      transform: translateY(38%);
-      opacity:.98;
-    }
-    .env-paper .mini-k{letter-spacing:.12em;text-transform:uppercase;font-size:11px;opacity:.7}
-    .env-paper .mini-t{margin:10px 0 6px;font-size:22px;font-weight:760;line-height:1.05}
-    .env-paper .mini-s{font-size:13px;opacity:.7}
-    .env-flap{
-      position:absolute;
-      left:0; right:0; top:0;
-      height:56%;
-      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
-      border-bottom:1px solid rgba(255,255,255,.18);
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-      transform-origin: top center;
-      transform: rotateX(0deg);
-      backface-visibility:hidden;
-    }
-    .env-seal{
-      position:absolute;
-      left:50%; top:52%;
-      transform: translate(-50%, -50%);
-      width:56px; height:56px;
-      border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.85), rgba(255,255,255,.18));
-      border:1px solid rgba(255,255,255,.22);
-      display:grid; place-items:center;
-      color:rgba(10,12,16,.75);
-      font-weight:800;
-      letter-spacing:.05em;
-    }
-    .intro-note{
-      margin-top:18px;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-
-    .intro.play .env-seal{ animation: sealPop 650ms ease forwards; }
-    .intro.play .env-flap{ animation: flapOpen 950ms cubic-bezier(.2,.8,.2,1) 250ms forwards; }
-    .intro.play .env-paper{ animation: paperOut 1100ms cubic-bezier(.2,.9,.2,1) 700ms forwards; }
-
-    @keyframes sealPop{
-      0%{ transform:translate(-50%,-50%) scale(1); opacity:1; }
-      55%{ transform:translate(-50%,-50%) scale(1.06); opacity:1; }
-      100%{ transform:translate(-50%,-50%) scale(.90); opacity:0; }
-    }
-    @keyframes flapOpen{
-      0%{ transform: rotateX(0deg); }
-      100%{ transform: rotateX(165deg); }
-    }
-    @keyframes paperOut{
-      0%{ transform: translateY(38%); }
-      60%{ transform: translateY(-6%); }
-      100%{ transform: translateY(-12%); }
-    }
   </style>
 </head>
 
@@ -852,4 +772,5 @@
   </script>
 </body>
 </html>
+
 
