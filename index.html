@@ -8,13 +8,15 @@
   <style>
     :root{
       --bg:#0b0d12;
-      --card:rgba(255,255,255,.08);
-      --card2:rgba(255,255,255,.12);
-      --text:rgba(255,255,255,.93);
-      --muted:rgba(255,255,255,.72);
-      --line:rgba(255,255,255,.18);
+      --card:rgba(255,255,255,.30);
+      --card2:rgba(255,255,255,.38);
+      --text:rgba(255,255,255,.99);
+      --muted:rgba(255,255,255,.80);
+      --line:rgba(255,255,255,.28);
       --ei-radius:18px;
       --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --accent:#ff8a3d;     /* playful orange */
+      --accent2:#f07b6a;    /* coral */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -33,16 +35,17 @@
       content:"";
       position:fixed; inset:0;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.35) 45%, rgba(0,0,0,.70)),
+        linear-gradient(180deg, rgba(0,0,0,.01), rgba(0,0,0,.01) 45%, rgba(0,0,0,.01)),
         url("bg.png") center/cover no-repeat;
-      filter:saturate(1.05) contrast(1.05);
+      filter:saturate(1.12) contrast(1.06);
       z-index:-2;
     }
     body::after{
       content:"";
       position:fixed; inset:0;
-      backdrop-filter: blur(6px);
-      background: radial-gradient(800px 500px at 20% 10%, rgba(255,255,255,.10), transparent 60%);
+      backdrop-filter: blur(4px);
+      background:
+        radial-gradient(1600px 1000px at 90% -10%, rgba(255,255,255,.06), transparent 75%);
       z-index:-1;
       pointer-events:none;
     }
@@ -79,11 +82,21 @@
     .card{
       max-width:940px;
       margin:0 auto;
-      padding: clamp(18px,3vw,34px);
-      background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.03));
-      border:1px solid var(--line);
-      border-radius: var(--ei-radius);
-      backdrop-filter: blur(10px);
+      padding: clamp(22px,3.5vw,40px);
+
+      background:
+        linear-gradient(180deg,
+          rgba(255,255,255,.30),
+          rgba(255,255,255,.18)
+        );
+
+      border:1px solid rgba(255,255,255,.35);
+      border-radius: 24px;
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.45);
+
+      backdrop-filter: blur(16px);
     }
     .kicker{letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--muted)}
     h1{margin:10px 0 18px;font-size:clamp(34px,4.8vw,58px);line-height:1.02}
@@ -96,11 +109,21 @@
       margin:18px 0 14px;
     }
     .timebox{
-      background: linear-gradient(180deg, var(--card2), rgba(255,255,255,0.04));
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:14px 12px;
+      background:
+        radial-gradient(120% 120% at 30% 10%, rgba(255,138,61,.22), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,.22));
+
+      border:1px solid rgba(255,255,255,.30);
+      border-radius: 20px;
+      padding:18px 14px;
       text-align:center;
+
+      box-shadow: 0 12px 28px rgba(0,0,0,.20);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .timebox:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.26);
     }
     .num{font-size:clamp(20px,3.2vw,34px);font-weight:700}
     .lbl{font-size:12px;color:var(--muted);margin-top:4px}
@@ -205,9 +228,20 @@
     radial-gradient(900px 600px at 70% 30%, rgba(255,255,255,.08), transparent 62%),
     linear-gradient(180deg, #07080c, #05060a);
   z-index:9999;
-  transition: opacity .7s ease, visibility .7s ease;
+
+  /* Smooth fade */
+  opacity: 1;
+  transition: opacity 1200ms ease;
 }
-.intro.is-done{opacity:0; visibility:hidden; pointer-events:none;}
+
+.intro.is-done{
+  opacity:0;
+  pointer-events:none;
+
+  /* Hide only after the opacity transition finishes */
+  visibility:hidden;
+  transition: opacity 1200ms ease, visibility 0s linear 1200ms;
+}
 
 .intro-stage{
   display:grid;
@@ -425,36 +459,83 @@
   100%{ transform: translateY(0) scale(1.02); }
 }
 
+.intro-click{
+  /* keep it if you want the button-centered layout, but DON'T control opacity here */
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
+  z-index:9999;
+
+  /* no opacity / animation here — .intro controls visibility */
+}
+
+
+
+.intro-btn{
+  border:0;
+  background:transparent;
+  padding:0;
+  cursor:pointer;
+  border-radius:24px;
+  outline:none;
+  transform: translateY(30px) scale(.94) rotateX(6deg);
+  opacity:0;
+  animation: envelopeArrive 1100ms cubic-bezier(.16,.84,.28,1) 200ms forwards,
+    gentleFloat 6s ease-in-out 2s infinite;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,.75));
+}
+
+@keyframes gentleFloat{
+  0%,100%{ transform: translateY(0px) scale(1); }
+  50%{ transform: translateY(-6px) scale(1.01); }
+}
+
+@keyframes envelopeArrive{
+  0%{
+    transform: translateY(40px) scale(.92) rotateX(8deg);
+    opacity:0;
+  }
+  60%{
+    transform: translateY(-6px) scale(1.02) rotateX(0deg);
+    opacity:1;
+  }
+  100%{
+    transform: translateY(0px) scale(1) rotateX(0deg);
+    opacity:1;
+  }
+}
+
+.intro-btn:hover{
+  transform: translateY(-2px) scale(1.01);
+  transition: transform 180ms ease;
+}
+
+.intro-btn:active{
+  transform: scale(.98);
+}
+
+.intro-img{
+  max-width: 95vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  display:block;
+  border-radius:22px;
+}
+
+
+
   </style>
 </head>
 
 <body>
-<div class="intro" id="intro" aria-hidden="true">
-  <div class="intro-stage">
-    <div class="lux-env" aria-hidden="true">
-      <div class="lux-env__back"></div>
-
-      <div class="lux-env__paper">
-        <div class="lux-paper__kicker">You’re invited</div>
-        <div class="lux-paper__title">Pedro</div>
-        <div class="lux-paper__amp">&amp;</div>
-        <div class="lux-paper__title">Julia</div>
-        <div class="lux-paper__sub">Tap to open</div>
-      </div>
-
-      <div class="lux-env__pocket"></div>
-      <div class="lux-env__flap"></div>
-
-      <div class="lux-seal">
-        <span class="lux-seal__mark">PJ</span>
-      </div>
-
-      <div class="lux-sparkles" aria-hidden="true"></div>
-    </div>
-
-    <div class="intro-note">Opening your invitation…</div>
+  <!-- Click-to-open intro overlay -->
+  <div class="intro intro-click" id="intro" aria-hidden="true">
+    <button class="intro-btn" id="openInvite" type="button" aria-label="Open invitation">
+      <img class="intro-img" src="envelope.png" alt="Invitation envelope. Tap to open.">
+    </button>
   </div>
-</div>
 
 
 
@@ -655,19 +736,42 @@
     const TIMEZONE_LABEL = "Europe/Berlin";
 
     // ===== Intro envelope =====
-    const intro = document.getElementById("intro");
-    function finishIntro(){
-      intro.classList.add("is-done");
-      document.body.style.overflowY = "auto";
-    }
-    function playIntro(){
-      document.body.style.overflowY = "hidden";
-      intro.classList.add("play");
-      setTimeout(finishIntro, 2800);
-    }
-    intro.addEventListener("click", finishIntro, { passive:true });
-    window.addEventListener("keydown", finishIntro);
-    window.addEventListener("load", playIntro);
+  const intro = document.getElementById("intro");
+
+  let introDone = false;
+  let autoCloseTimer = null;
+
+  function finishIntro() {
+    if (introDone) return;
+    introDone = true;
+
+    // If the user clicked before the timer, cancel the auto-close
+    if (autoCloseTimer) clearTimeout(autoCloseTimer);
+
+    intro.classList.add("is-done");
+    document.body.style.overflowY = "auto";
+
+    // Optional: clean up listeners once done
+    intro.removeEventListener("click", finishIntro);
+    window.removeEventListener("keydown", finishIntro);
+  }
+
+  function playIntro() {
+    document.body.style.overflowY = "hidden";
+    intro.classList.add("play");
+
+
+    autoCloseTimer = setTimeout(finishIntro, 6000);
+  }
+
+
+  // Close immediately on click/tap, or any key press
+  intro.addEventListener("click", finishIntro, { passive: true });
+  window.addEventListener("keydown", finishIntro);
+
+  // Start on load
+  window.addEventListener("load", playIntro);
+
 
     // ========= Labels =========
     document.getElementById("eventLabel").textContent = EVENT_LABEL;
@@ -770,8 +874,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
