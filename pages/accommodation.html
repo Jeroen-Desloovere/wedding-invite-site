@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where to Stay — Nensi & Jeroen · 5 Sept 2026</title>
+  <meta name="description" content="Recommended accommodation near Durrës, Shijak, Tirana, and Agroturizëm Gjepali for guests attending Nensi and Jeroen's wedding.">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    .hotel-card {
+      background: var(--cream);
+      border: 1px solid var(--divider);
+      padding: 2.4rem;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+      position: relative;
+    }
+    .hotel-card:hover {
+      box-shadow: 0 6px 28px rgba(155,27,48,0.09);
+      transform: translateY(-3px);
+    }
+    .hotel-card--featured {
+      border-color: var(--pomegranate);
+      border-width: 1.5px;
+    }
+    .featured-badge {
+      position: absolute;
+      top: -1px; right: 2rem;
+      background: var(--pomegranate);
+      color: var(--champagne);
+      font-family: var(--font-serif);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+    }
+    .hotel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .hotel-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--wine);
+      margin: 0;
+    }
+    .hotel-price {
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .hotel-meta {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .hotel-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .hotel-meta-item svg {
+      color: var(--pomegranate);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+    .hotel-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+    .hotel-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+    .feature-pill {
+      font-family: var(--font-serif);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.7rem;
+      border: 1px solid var(--divider);
+      color: var(--text-muted);
+      border-radius: 1px;
+    }
+    .hotel-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--divider);
+    }
+    .hotel-address {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .price-categories {
+      display: flex;
+      gap: 1.5rem;
+      margin: 3rem 0 1.5rem;
+      flex-wrap: wrap;
+    }
+    .price-cat-btn {
+      background: none;
+      border: 1px solid var(--divider);
+      padding: 0.5rem 1.2rem;
+      font-family: var(--font-serif);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .price-cat-btn.active,
+    .price-cat-btn:hover {
+      background: var(--wine);
+      border-color: var(--wine);
+      color: var(--champagne);
+    }
+    .section-note {
+      background: var(--champagne);
+      border-left: 3px solid var(--pomegranate);
+      padding: 1.4rem 1.8rem;
+      margin: 3rem 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .section-note strong { color: var(--wine); }
+    .section-separator {
+      width: 60px; height: 1px;
+      background: var(--gold);
+      margin: 3rem auto;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav site-nav--inverse" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="nav-monogram" aria-label="Home">N & J</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#welcome">Welcome</a></li>
+      <li><a href="../index.html#details">Details</a></li>
+      <li><a href="../index.html#rsvp">RSVP</a></li>
+      <li><a href="../index.html#faq">FAQ</a></li>
+      <li><a href="travel.html">Travel</a></li>
+      <li><a href="accommodation.html" aria-current="page">Stay</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Hero -->
+  <header class="page-hero" role="banner">
+    <svg viewBox="0 0 800 80" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.12" fill="var(--champagne)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 40 Q200 0 400 40 Q600 80 800 40 L800 80 L0 80Z"/>
+    </svg>
+    <span class="section-label">Rest & Recharge</span>
+    <h1>Where to Stay</h1>
+    <div class="ornament-divider" aria-hidden="true" style="margin:1.2rem auto;">
+      <span class="ornament-line" style="background:rgba(245,230,216,0.4)"></span>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="rgba(245,230,216,0.6)"><path d="M8 1.5C8 1.5 6.5 0 4 0C1.5 0 0 2 0 4C0 8.5 8 14.5 8 14.5C8 14.5 16 8.5 16 4C16 2 14.5 0 12 0C9.5 0 8 1.5 8 1.5Z"/></svg>
+      <span class="ornament-line" style="background:rgba(245,230,216,0.4)"></span>
+    </div>
+    <p class="lead-text" style="color:rgba(245,230,216,0.8); max-width:540px; margin:0 auto;">
+      A practical guide to where to stay near Agroturizëm Gjepali — from the closest countryside options to Durrës seafront and Tirana city stays.
+    </p>
+  </header>
+
+  <main>
+    <div class="content-section fade-in" style="max-width: var(--max-width); margin: 0 auto;">
+
+      <div class="section-note">
+        <strong>Booking early is important.</strong> The venue is in the Gjepalaj/Shijak countryside, so the best place to stay depends on whether you prefer being closest to the wedding, by the sea in Durrës, or in the city in Tirana. Please share your accommodation in the RSVP so we can coordinate transport.
+      </div>
+
+      <span class="section-label">Our pick</span>
+      <h2>Recommended Areas to Stay</h2>
+
+      <!-- ===== FEATURED ===== -->
+      <div class="hotel-card hotel-card--featured fade-in">
+        <div class="featured-badge">Closest to the Venue</div>
+
+        <div class="hotel-header">
+          <h3 class="hotel-name">Agroturizëm Gjepali / Gjepalaj Area</h3>
+          <span class="hotel-price">€€ · Most convenient</span>
+        </div>
+
+        <div class="hotel-meta">
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="7" r="3"/><path d="M8 1 Q13 5 13 9 Q13 13 8 15 Q3 13 3 9 Q3 5 8 1Z"/></svg>
+            Venue area
+          </span>
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M3 5h10M3 11h6"/></svg>
+            Minimal wedding-day travel
+          </span>
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h10v7H3z"/><path d="M5 5V3h6v2"/></svg>
+            Limited availability
+          </span>
+        </div>
+
+        <p class="hotel-desc">
+          Staying at or very close to Agroturizëm Gjepali is the simplest option for the wedding itself, especially for guests who want the shortest possible transfer. Availability in the immediate countryside area is limited, so book early and confirm exact transport details with us.
+        </p>
+
+        <div class="hotel-features">
+          <span class="feature-pill">Closest Option</span>
+          <span class="feature-pill">Countryside</span>
+          <span class="feature-pill">Quiet Setting</span>
+          <span class="feature-pill">Transport Friendly</span>
+        </div>
+
+        <div class="hotel-footer">
+          <span class="hotel-address">Gjepalaj / Shijak area · confirm directly or via booking platforms</span>
+          <a href="../index.html#rsvp" class="btn" style="font-size:0.72rem; padding:0.65rem 1.4rem;">Note in RSVP</a>
+        </div>
+      </div>
+
+      <!-- ===== AREA 2 ===== -->
+      <div class="hotel-card fade-in">
+        <div class="hotel-header">
+          <h3 class="hotel-name">Durrës Seafront</h3>
+          <span class="hotel-price">€–€€€ · Best all-round base</span>
+        </div>
+        <div class="hotel-meta">
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="7" r="3"/><path d="M8 1 Q13 5 13 9 Q13 13 8 15 Q3 13 3 9 Q3 5 8 1Z"/></svg>
+            Coastal stay
+          </span>
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M3 5h10M3 11h6"/></svg>
+            ~20–30 min to venue by car
+          </span>
+        </div>
+        <p class="hotel-desc">
+          Durrës is the most balanced choice for many guests: more hotel and apartment options, access to the sea, restaurants, and a much shorter journey to the venue than staying on the southern coast. It is a strong choice if you want convenience without being in the city.
+        </p>
+        <div class="hotel-features">
+          <span class="feature-pill">Beach Nearby</span>
+          <span class="feature-pill">Many Hotels</span>
+          <span class="feature-pill">Restaurants</span>
+          <span class="feature-pill">Good for Groups</span>
+        </div>
+        <div class="hotel-footer">
+          <span class="hotel-address">Durrës seafront / Golem area · search on Booking.com or Airbnb</span>
+        </div>
+      </div>
+
+      <!-- ===== AREA 3 ===== -->
+      <div class="hotel-card fade-in">
+        <div class="hotel-header">
+          <h3 class="hotel-name">Tirana City Centre</h3>
+          <span class="hotel-price">€–€€€ · Best city stay</span>
+        </div>
+        <div class="hotel-meta">
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="7" r="3"/><path d="M8 1 Q13 5 13 9 Q13 13 8 15 Q3 13 3 9 Q3 5 8 1Z"/></svg>
+            City centre
+          </span>
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M3 5h10M3 11h6"/></svg>
+            ~40–60 min to venue by car
+          </span>
+        </div>
+        <p class="hotel-desc">
+          Tirana is the best option if you want a lively city base with the widest choice of hotels, cafés, restaurants, and nightlife. It is slightly less convenient for the wedding-day transfer, so plan extra time and avoid leaving too late.
+        </p>
+        <div class="hotel-features">
+          <span class="feature-pill">City Break</span>
+          <span class="feature-pill">Restaurants</span>
+          <span class="feature-pill">Nightlife</span>
+          <span class="feature-pill">Airport Access</span>
+        </div>
+        <div class="hotel-footer">
+          <span class="hotel-address">Blloku / Skanderbeg Square / central Tirana · search on hotel platforms</span>
+        </div>
+      </div>
+
+      <!-- ===== AREA 4 ===== -->
+      <div class="hotel-card fade-in">
+        <div class="hotel-header">
+          <h3 class="hotel-name">Shijak or Durrës Old Town</h3>
+          <span class="hotel-price">€ · Practical & simple</span>
+        </div>
+        <div class="hotel-meta">
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="7" r="3"/><path d="M8 1 Q13 5 13 9 Q13 13 8 15 Q3 13 3 9 Q3 5 8 1Z"/></svg>
+            Close to venue area
+          </span>
+          <span class="hotel-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M3 5h10M3 11h6"/></svg>
+            Good for short stays
+          </span>
+        </div>
+        <p class="hotel-desc">
+          If your priority is keeping things easy and local, look around Shijak or Durrës Old Town. The selection may be smaller than Tirana or the seafront, but the wedding-day logistics can be simpler.
+        </p>
+        <div class="hotel-features">
+          <span class="feature-pill">Local Base</span>
+          <span class="feature-pill">Shorter Transfer</span>
+          <span class="feature-pill">Simple Logistics</span>
+          <span class="feature-pill">Good Value</span>
+        </div>
+        <div class="hotel-footer">
+          <span class="hotel-address">Shijak / Durrës Old Town · compare hotel and apartment options</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-separator"></div>
+
+    <!-- Booking tips -->
+    <div class="section section--ivory fade-in">
+      <div class="container" style="max-width: var(--max-width);">
+        <div class="centered section-heading">
+          <span class="section-label">Helpful Advice</span>
+          <h2>Booking Tips</h2>
+        </div>
+
+        <div class="info-grid" style="margin-top:2rem;">
+          <div class="info-card">
+            <h3>Book Early</h3>
+            <p>September can still be busy, especially in popular coastal areas and in Tirana. Book once your travel dates are clear, and prioritise options with straightforward cancellation terms.</p>
+          </div>
+          <div class="info-card">
+            <h3>Share Your Location</h3>
+            <p>Please add your hotel or apartment address in the RSVP when you know it. This helps us plan guest transport and pickup points more realistically.</p>
+          </div>
+          <div class="info-card">
+            <h3>Plan the Return</h3>
+            <p>The venue is rural, so do not rely on walking or finding last-minute transport late at night. Use the coordinated transfer or arrange a trusted driver in advance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA to travel page -->
+    <div style="padding: 4rem 2rem; text-align:center;" class="fade-in">
+      <span class="section-label">Next Steps</span>
+      <h2 style="margin-bottom:1rem;">Ready to Plan Your Journey?</h2>
+      <p class="lead-text" style="margin: 0 auto 2rem;">
+        Our travel guide covers airports, transfers, local transport, and ideas near Durrës and Tirana.
+      </p>
+      <a href="travel.html" class="btn btn--primary">View Travel Guide</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <svg class="footer-ornament" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 14C30 14 26 10 21 10C16 10 12 14.5 12 20C12 30 30 38 30 38C30 38 48 30 48 20C48 14.5 44 10 39 10C34 10 30 14 30 14Z" fill="currentColor" opacity="0.5"/>
+    </svg>
+    <p class="footer-names">Nensi & Jeroen</p>
+    <p class="footer-date">5 Sept 2026 · Agroturizëm Gjepali, Albania</p>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#rsvp">RSVP</a></li>
+      <li><a href="travel.html">Travel</a></li>
+      <li><a href="accommodation.html">Stay</a></li>
+    </ul>
+    <p class="footer-copy">See you there! &middot; 2026</p>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>
