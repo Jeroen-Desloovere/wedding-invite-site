@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Guide — Nensi & Jeroen · 5 Sept 2026</title>
+  <meta name="description" content="Everything you need to know about travelling to Agroturizëm Gjepali for Nensi and Jeroen's wedding.">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    .transport-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .transport-card {
+      background: var(--cream);
+      border: 1px solid var(--divider);
+      padding: 2rem;
+      transition: var(--transition);
+    }
+    .transport-card:hover {
+      box-shadow: 0 4px 20px rgba(155,27,48,0.08);
+      transform: translateY(-2px);
+    }
+    .transport-card .card-icon {
+      color: var(--pomegranate);
+      margin-bottom: 1rem;
+      opacity: 0.75;
+    }
+    .transport-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .transport-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .step-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      counter-reset: steps;
+    }
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+      align-items: flex-start;
+    }
+    .step-list li::before {
+      content: counter(steps);
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--pomegranate);
+      color: var(--champagne);
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-list li p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .step-list li strong {
+      display: block;
+      color: var(--wine);
+      font-family: var(--font-serif);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .tip-box {
+      display: flex;
+      gap: 1rem;
+      background: rgba(201,169,110,0.12);
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.4rem;
+      margin: 2rem 0;
+      border-radius: 0 2px 2px 0;
+    }
+    .tip-box p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .tip-box strong {
+      color: var(--wine);
+    }
+    .airport-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      font-size: 0.92rem;
+    }
+    .airport-table th {
+      font-family: var(--font-serif);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--divider);
+    }
+    .airport-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--divider);
+      color: var(--text-muted);
+    }
+    .airport-table tr:hover td {
+      background: rgba(245,230,216,0.4);
+    }
+    .airport-table .airport-name {
+      color: var(--wine);
+      font-weight: 500;
+    }
+    .section-separator {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 3rem auto;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav site-nav--inverse" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="nav-monogram" aria-label="Home">N & J</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#welcome">Welcome</a></li>
+      <li><a href="../index.html#details">Details</a></li>
+      <li><a href="../index.html#rsvp">RSVP</a></li>
+      <li><a href="../index.html#faq">FAQ</a></li>
+      <li><a href="travel.html" aria-current="page">Travel</a></li>
+      <li><a href="accommodation.html">Stay</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Hero -->
+  <header class="page-hero" role="banner">
+    <!-- Subtle wave decoration -->
+    <svg viewBox="0 0 800 80" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.12" fill="var(--champagne)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 40 Q200 0 400 40 Q600 80 800 40 L800 80 L0 80Z"/>
+    </svg>
+
+    <span class="section-label">Getting Here</span>
+    <h1>Your Travel Guide</h1>
+    <div class="ornament-divider" aria-hidden="true" style="margin:1.2rem auto;">
+      <span class="ornament-line" style="background:rgba(245,230,216,0.4)"></span>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="rgba(245,230,216,0.6)"><path d="M8 1.5C8 1.5 6.5 0 4 0C1.5 0 0 2 0 4C0 8.5 8 14.5 8 14.5C8 14.5 16 8.5 16 4C16 2 14.5 0 12 0C9.5 0 8 1.5 8 1.5Z"/></svg>
+      <span class="ornament-line" style="background:rgba(245,230,216,0.4)"></span>
+    </div>
+    <p class="lead-text" style="color:rgba(245,230,216,0.8); max-width:540px; margin:0 auto;">
+      Agroturizëm Gjepali is a countryside venue near Gjepalaj and Shijak, close to Durrës and within easy reach of Tirana Airport. Here is everything you need to plan your journey.
+    </p>
+  </header>
+
+  <main>
+    <!-- ======================================================
+         GETTING TO GJEPALI
+    ====================================================== -->
+    <div class="content-section fade-in">
+      <h1>This page is still under construction. Please come back later to find our travel tips!<br>In case you have any urgent questions, do not hesitate to reach out!</h1>
+
+
+    
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <svg class="footer-ornament" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 14C30 14 26 10 21 10C16 10 12 14.5 12 20C12 30 30 38 30 38C30 38 48 30 48 20C48 14.5 44 10 39 10C34 10 30 14 30 14Z" fill="currentColor" opacity="0.5"/>
+    </svg>
+
+    <p class="footer-names">Nensi & Jeroen</p>
+    <p class="footer-date">5 Sept 2026 · Agroturizëm Gjepali, Albania</p>
+
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#rsvp">RSVP</a></li>
+      <li><a href="travel.html">Travel</a></li>
+      <li><a href="accommodation.html">Stay</a></li>
+    </ul>
+    <p class="footer-copy">See you there! &middot; 2026</p>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

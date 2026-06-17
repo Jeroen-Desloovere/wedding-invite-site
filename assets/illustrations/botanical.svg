@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" width="300" height="180">
+  <!-- Subtle botanical / olive branch illustration -->
+  <!-- Main stem left -->
+  <path d="M40 160 Q80 120 120 90 Q150 70 180 60"
+        stroke="#9B1B30" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- Leaves left branch -->
+  <path d="M60 145 Q50 125 65 115 Q75 130 60 145Z" fill="#9B1B30" opacity="0.2"/>
+  <path d="M80 128 Q68 108 84 99 Q94 114 80 128Z" fill="#9B1B30" opacity="0.2"/>
+  <path d="M100 112 Q90 92 106 84 Q116 99 100 112Z" fill="#9B1B30" opacity="0.2"/>
+  <path d="M120 98 Q108 80 124 72 Q135 87 120 98Z" fill="#9B1B30" opacity="0.2"/>
+
+  <!-- Main stem right (mirrored) -->
+  <path d="M260 160 Q220 120 180 90 Q150 70 120 60"
+        stroke="#9B1B30" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- Leaves right branch -->
+  <path d="M240 145 Q250 125 235 115 Q225 130 240 145Z" fill="#9B1B30" opacity="0.2"/>
+  <path d="M220 128 Q232 108 216 99 Q206 114 220 128Z" fill="#9B1B30" opacity="0.2"/>
+  <path d="M200 112 Q210 92 194 84 Q184 99 200 112Z" fill="#9B1B30" opacity="0.2"/>
+  <path d="M180 98 Q192 80 176 72 Q165 87 180 98Z" fill="#9B1B30" opacity="0.2"/>
+
+  <!-- Central heart/flower -->
+  <path d="M150 55 C150 55 144 48 138 48 C132 48 127 53 127 58.5 C127 67 150 78 150 78 C150 78 173 67 173 58.5 C173 53 168 48 162 48 C156 48 150 55 150 55Z"
+        fill="#9B1B30" opacity="0.35"/>
+
+  <!-- Small berries / dots -->
+  <circle cx="52" cy="138" r="2.5" fill="#C9A96E" opacity="0.5"/>
+  <circle cx="72" cy="122" r="2" fill="#C9A96E" opacity="0.5"/>
+  <circle cx="92" cy="106" r="2.5" fill="#C9A96E" opacity="0.5"/>
+  <circle cx="248" cy="138" r="2.5" fill="#C9A96E" opacity="0.5"/>
+  <circle cx="228" cy="122" r="2" fill="#C9A96E" opacity="0.5"/>
+  <circle cx="208" cy="106" r="2.5" fill="#C9A96E" opacity="0.5"/>
+</svg>
