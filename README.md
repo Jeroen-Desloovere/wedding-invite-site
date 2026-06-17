@@ -61,7 +61,7 @@ Change to your actual date and ceremony time.
 Venue details are set to `Agroturizëm Gjepali` in Gjepalaj/Shijak, Albania.
 
 #### RSVP Form
-The RSVP form currently simulates a submission (no backend). To connect it to a real form backend, replace the `setTimeout` block in `scripts/main.js` with a `fetch()` call to your endpoint (Formspree, Netlify Forms, etc.).
+The RSVP form is configured for Netlify Forms. It uses static form fields for Netlify's build-time scanner and submits with a URL-encoded `fetch()` request in `scripts/main.js`.
 
 #### Colours
 All colours are defined as CSS variables at the top of `styles/main.css`:

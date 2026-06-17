@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Guide — Nensi & Jeroen · 5 Sept 2026</title>
+  <meta name="description" content="Everything you need to know about travelling to Agroturizëm Gjepali for Nensi and Jeroen's wedding.">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    .transport-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .transport-card {
+      background: var(--cream);
+      border: 1px solid var(--divider);
+      padding: 2rem;
+      transition: var(--transition);
+    }
+    .transport-card:hover {
+      box-shadow: 0 4px 20px rgba(155,27,48,0.08);
+      transform: translateY(-2px);
+    }
+    .transport-card .card-icon {
+      color: var(--pomegranate);
+      margin-bottom: 1rem;
+      opacity: 0.75;
+    }
+    .transport-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .transport-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .step-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      counter-reset: steps;
+    }
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+      align-items: flex-start;
+    }
+    .step-list li::before {
+      content: counter(steps);
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--pomegranate);
+      color: var(--champagne);
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-list li p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .step-list li strong {
+      display: block;
+      color: var(--wine);
+      font-family: var(--font-serif);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .tip-box {
+      display: flex;
+      gap: 1rem;
+      background: rgba(201,169,110,0.12);
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.4rem;
+      margin: 2rem 0;
+      border-radius: 0 2px 2px 0;
+    }
+    .tip-box p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .tip-box strong {
+      color: var(--wine);
+    }
+    .airport-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      font-size: 0.92rem;
+    }
+    .airport-table th {
+      font-family: var(--font-serif);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--divider);
+    }
+    .airport-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--divider);
+      color: var(--text-muted);
+    }
+    .airport-table tr:hover td {
+      background: rgba(245,230,216,0.4);
+    }
+    .airport-table .airport-name {
+      color: var(--wine);
+      font-weight: 500;
+    }
+    .section-separator {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 3rem auto;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav site-nav--inverse" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="nav-monogram" aria-label="Home">N & J</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#welcome">Welcome</a></li>
+      <li><a href="../index.html#details">Details</a></li>
+      <li><a href="../index.html#rsvp">RSVP</a></li>
+      <li><a href="../index.html#faq">FAQ</a></li>
+      <li><a href="travel.html" aria-current="page">Travel</a></li>
+      <li><a href="accommodation.html">Stay</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Hero -->
+  <header class="page-hero" role="banner">
+    <!-- Subtle wave decoration -->
+    <svg viewBox="0 0 800 80" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.12" fill="var(--champagne)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 40 Q200 0 400 40 Q600 80 800 40 L800 80 L0 80Z"/>
+    </svg>
+
+    <span class="section-label">Getting Here</span>
+    <h1>Your Travel Guide</h1>
+    <div class="ornament-divider" aria-hidden="true" style="margin:1.2rem auto;">
+      <span class="ornament-line" style="background:rgba(245,230,216,0.4)"></span>
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="rgba(245,230,216,0.6)"><path d="M8 1.5C8 1.5 6.5 0 4 0C1.5 0 0 2 0 4C0 8.5 8 14.5 8 14.5C8 14.5 16 8.5 16 4C16 2 14.5 0 12 0C9.5 0 8 1.5 8 1.5Z"/></svg>
+      <span class="ornament-line" style="background:rgba(245,230,216,0.4)"></span>
+    </div>
+    <p class="lead-text" style="color:rgba(245,230,216,0.8); max-width:540px; margin:0 auto;">
+      Agroturizëm Gjepali is a countryside venue near Gjepalaj and Shijak, close to Durrës and within easy reach of Tirana Airport. Here is everything you need to plan your journey.
+    </p>
+  </header>
+
+  <main>
+    <!-- ======================================================
+         GETTING TO GJEPALI
+    ====================================================== -->
+    <div class="content-section fade-in">
+      <span class="section-label">By Air & Road</span>
+      <h2>Best Arrival Options</h2>
+      <p style="color:var(--text-muted);">
+        The wedding venue is Agroturizëm Gjepali in the Gjepalaj/Shijak area. The simplest arrival point is Tirana International Airport, followed by a pre-booked transfer, taxi, or rental car to the venue or your accommodation.
+      </p>
+
+      <table class="airport-table">
+        <thead>
+          <tr>
+            <th>Arrival Point</th>
+            <th>Code</th>
+            <th>Approx. Distance</th>
+            <th>Best Route</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="airport-name">Tirana International Airport<br><small style="color:var(--text-muted); font-weight:400">Nënë Tereza</small></td>
+            <td>TIA</td>
+            <td>~25–35 min drive</td>
+            <td>Taxi, private transfer, or rental car toward Shijak / Gjepalaj</td>
+          </tr>
+          <tr>
+            <td class="airport-name">Durrës City / Port<br><small style="color:var(--text-muted); font-weight:400">Useful if arriving by ferry or staying by the sea</small></td>
+            <td>—</td>
+            <td>~20–30 min drive</td>
+            <td>Taxi or arranged transfer from your hotel</td>
+          </tr>
+          <tr>
+            <td class="airport-name">Tirana City Centre<br><small style="color:var(--text-muted); font-weight:400">Best for guests adding a city stay</small></td>
+            <td>—</td>
+            <td>~40–60 min drive</td>
+            <td>Taxi, private driver, or rental car depending on traffic</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--gold)" style="flex-shrink:0;margin-top:2px" aria-hidden="true">
+          <circle cx="10" cy="10" r="9" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+          <path d="M10 6v4M10 13v1" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p><strong>Our recommendation:</strong> Fly into Tirana (TIA) and avoid relying on public transport for the final leg. The venue is rural, so a direct transfer, taxi, or rental car is the most comfortable option.</p>
+      </div>
+    </div>
+
+    <div class="section-separator"></div>
+
+    <!-- ======================================================
+         AIRPORT TRANSFER
+    ====================================================== -->
+    <div class="content-section fade-in">
+      <span class="section-label">TIA → Gjepali</span>
+      <h2>From Tirana Airport to the Venue Area</h2>
+      <p style="color:var(--text-muted); margin-bottom: 2rem;">
+        Tirana Airport is the most practical gateway. The final stretch to Agroturizëm Gjepali is by road, so plan this part before you arrive.
+      </p>
+
+      <ul class="step-list">
+        <li>
+          <div>
+            <strong>Pre-book your transfer if possible</strong>
+            <p>A private transfer or taxi is the easiest option, especially if you are arriving with luggage or late in the day. Ask your accommodation to help arrange pickup if you are staying in Durrës, Shijak, or Tirana.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Use Durrës as the easiest coastal base</strong>
+            <p>Durrës is much closer to the venue than Albania's southern coast and has a wide range of hotels and apartments. It is a practical choice if you want to stay near the sea while keeping the wedding transfer manageable.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Consider Tirana for city convenience</strong>
+            <p>Tirana has the widest hotel choice, restaurants, and nightlife. It is a good option if you want a city break, but allow extra time on the wedding day because traffic can vary.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Rental car only if you are comfortable driving</strong>
+            <p>A car gives flexibility for beaches and day trips, but it is not necessary for the wedding itself if you use the coordinated transport. Please plan a safe return if you will be drinking.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="tip-box">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--gold)" style="flex-shrink:0;margin-top:2px" aria-hidden="true">
+          <circle cx="10" cy="10" r="9" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+          <path d="M10 6v4M10 13v1" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p><strong>Navigation note:</strong> The venue address is Rruga Elez Gjepali 1, Shijak 2022, Albania. Navigation apps may lead you to the crossroads rather than the venue itself. At the crossroads, turn into the side road and continue until the end. Exact coordinates of the venue: 41°19'40"N 19°33'41"E.</p>
+      </div>
+
+      <div class="tip-box">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--gold)" style="flex-shrink:0;margin-top:2px" aria-hidden="true">
+          <circle cx="10" cy="10" r="9" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+          <path d="M10 6v4M10 13v1" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p><strong>Timing tip:</strong> If you arrive on Friday 4th September, try to land with enough daylight to reach your accommodation calmly, check in, and arrange your wedding-day pickup.</p>
+      </div>
+    </div>
+
+    <div class="section-separator"></div>
+
+    <!-- ======================================================
+         GETTING AROUND
+    ====================================================== -->
+    <div class="content-section fade-in">
+      <span class="section-label">Around Gjepali</span>
+      <h2>Getting Around</h2>
+
+      <div class="transport-grid">
+
+        <div class="transport-card">
+          <svg class="card-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <rect x="3" y="12" width="26" height="14" rx="2"/>
+            <path d="M3 16h26M9 26v3M23 26v3"/>
+            <path d="M5 12 L8 6 h16 L27 12"/>
+            <circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none"/>
+            <circle cx="23" cy="20" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <h3>Wedding Transport</h3>
+          <p>We are coordinating guest transport for the wedding day. Pickup points and exact times will be shared closer to the date once we know where guests are staying. Please confirm your transport needs in the RSVP.</p>
+        </div>
+
+        <div class="transport-card">
+          <svg class="card-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="12" cy="22" r="3"/>
+            <circle cx="22" cy="22" r="3"/>
+            <path d="M3 22 L3 14 L10 6 L26 6 L29 14 L29 22"/>
+            <path d="M15 22h4M9 22H3"/>
+          </svg>
+          <h3>Taxis & Drivers</h3>
+          <p>Taxis and private drivers are the most practical way to move between the venue, Durrës, Shijak, Tirana, and the airport. Agree the price before departure or ask your hotel to arrange a trusted driver.</p>
+        </div>
+
+        <div class="transport-card">
+          <svg class="card-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <path d="M16 4 Q24 12 24 20 Q24 27 16 30 Q8 27 8 20 Q8 12 16 4Z"/>
+            <circle cx="16" cy="19" r="3"/>
+            <path d="M16 16 L16 10"/>
+          </svg>
+          <h3>Walking</h3>
+          <p>The venue is in a countryside setting, so it is not a place to rely on walking between hotels and the celebration. Choose walking only for exploring Durrës seafront, Tirana neighbourhoods, or your accommodation area.</p>
+        </div>
+
+        <div class="transport-card">
+          <svg class="card-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <rect x="6" y="4" width="20" height="28" rx="3"/>
+            <circle cx="16" cy="26" r="2"/>
+            <path d="M13 8h6"/>
+          </svg>
+          <h3>Ride Apps</h3>
+          <p>Uber and Bolt are not reliable assumptions in Albania. Hotel-arranged taxis, WhatsApp contact with a driver, or a pre-booked transfer are safer choices for airport and late-night journeys.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Highlight -->
+    <div style="padding: 0 2rem;">
+      <div class="highlight-box fade-in" style="max-width: var(--max-width); margin: 0 auto 0;">
+        <h3>Recommended Arrival</h3>
+        <p>We suggest arriving on <strong style="color:var(--champagne)">Thursday 3rd or Friday 4th September</strong> to settle in and make your transfer plans comfortably. Departing on Sunday 6th gives you a relaxed morning after the celebration.</p>
+        <a href="accommodation.html" class="btn btn--gold" style="margin-top:1.5rem">Browse Accommodation</a>
+      </div>
+    </div>
+
+    <div class="section-separator" style="margin-top: 3rem;"></div>
+
+    <!-- ======================================================
+         LOCAL TIPS
+    ====================================================== -->
+    <div class="content-section fade-in">
+      <span class="section-label">While You're Here</span>
+      <h2>Ideas Near Durrës & Tirana</h2>
+      <p style="color:var(--text-muted); margin-bottom: 2rem;">
+        Because the venue is in central Albania, the best nearby add-ons are Durrës, Tirana, and countryside day trips rather than the far southern coast.
+      </p>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <span class="tag">Venue</span>
+          <h3>Agroturizëm Gjepali</h3>
+          <p>Enjoy the countryside atmosphere, local food, and quiet setting around the venue itself. It is one of the reasons we chose this location.</p>
+        </div>
+
+        <div class="info-card">
+          <span class="tag">City</span>
+          <h3>Durrës</h3>
+          <p>A practical seaside base with restaurants, beach areas, and historic sights. It keeps you closer to the venue than staying in Tirana.</p>
+        </div>
+
+        <div class="info-card">
+          <span class="tag">History</span>
+          <h3>Durrës Amphitheatre</h3>
+          <p>A worthwhile stop if you enjoy history and want an easy cultural visit near the coast.</p>
+        </div>
+
+        <div class="info-card">
+          <span class="tag">City Break</span>
+          <h3>Tirana</h3>
+          <p>Stay here if you want cafés, restaurants, museums, and a lively city atmosphere before or after the wedding.</p>
+        </div>
+
+        <div class="info-card">
+          <span class="tag">Beach</span>
+          <h3>Durrës / Golem Coast</h3>
+          <p>The closest beach areas for guests who want a simple seaside day without travelling far south.</p>
+        </div>
+
+        <div class="info-card">
+          <span class="tag">Day Trip</span>
+          <h3>Krujë or Cape of Rodon</h3>
+          <p>Good options if you have a car or driver and want to add a scenic or cultural stop to the weekend.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======================================================
+         PRACTICAL INFO
+    ====================================================== -->
+    <div class="section section--ivory fade-in">
+      <div class="container">
+        <div class="centered section-heading">
+          <span class="section-label">Good to Know</span>
+          <h2>Practical Information</h2>
+        </div>
+
+        <div class="info-grid" style="margin-top:2.5rem;">
+
+          <div class="info-card">
+            <h3>Currency & Payment</h3>
+            <p>Albanian Lek (ALL). Euros are accepted in many tourist-facing places, but Lek is preferred and usually simpler. Cards are common in hotels and larger restaurants; keep some cash for taxis and smaller places.</p>
+          </div>
+
+          <div class="info-card">
+            <h3>Language</h3>
+            <p>Albanian (Shqip). English is common in many hotels and tourist-facing businesses in Tirana and Durrës. A few words of Albanian are always appreciated.</p>
+          </div>
+
+          <div class="info-card">
+            <h3>Mobile & Internet</h3>
+            <p>Check whether your EU roaming package includes Albania. Local SIM cards and eSIMs are easy options if your plan does not include affordable roaming.</p>
+          </div>
+
+          <div class="info-card">
+            <h3>Safety</h3>
+            <p>The area is generally friendly for visitors. Use normal travel awareness, pre-arrange late-night transport, and do not rely on walking back from the countryside venue.</p>
+          </div>
+
+          <div class="info-card">
+            <h3>Weather in September</h3>
+            <p>Expect warm late-summer weather. The venue is outdoors, so bring breathable clothing for the day and a light layer for the evening.</p>
+          </div>
+
+          <div class="info-card">
+            <h3>Electricity</h3>
+            <p>European Type C/F sockets are used. EU devices work without an adaptor; UK and US visitors should bring one.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <svg class="footer-ornament" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 14C30 14 26 10 21 10C16 10 12 14.5 12 20C12 30 30 38 30 38C30 38 48 30 48 20C48 14.5 44 10 39 10C34 10 30 14 30 14Z" fill="currentColor" opacity="0.5"/>
+    </svg>
+
+    <p class="footer-names">Nensi & Jeroen</p>
+    <p class="footer-date">5 Sept 2026 · Agroturizëm Gjepali, Albania</p>
+
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#rsvp">RSVP</a></li>
+      <li><a href="travel.html">Travel</a></li>
+      <li><a href="accommodation.html">Stay</a></li>
+    </ul>
+    <p class="footer-copy">See you there! &middot; 2026</p>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

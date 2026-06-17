@@ -100,21 +100,109 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- RSVP Form --- */
   const rsvpForm = document.getElementById('rsvp-form');
   if (rsvpForm) {
+    const guestSelect = document.getElementById('guests');
+    const additionalGuests = document.getElementById('additional-guests');
+    const additionalGuestFields = additionalGuests
+      ? Array.from(additionalGuests.querySelectorAll('[data-additional-guest]'))
+      : [];
+    const otherDietCheckbox = rsvpForm.querySelector('input[name="diet"][value="other"]');
+    const otherDietDetails = document.getElementById('diet-other-details');
+    const otherDietInput = document.getElementById('diet-other');
+
+    function renderAdditionalGuests() {
+      if (!guestSelect || !additionalGuests) return;
+
+      const totalGuests = Number(guestSelect.value) || 1;
+      const additionalCount = Math.max(totalGuests - 1, 0);
+
+      additionalGuestFields.forEach((field, index) => {
+        const shouldShow = index < additionalCount;
+        const input = field.querySelector('input');
+
+        field.hidden = !shouldShow;
+
+        if (input) {
+          input.disabled = !shouldShow;
+          input.required = shouldShow;
+
+          if (!shouldShow) {
+            input.value = '';
+          }
+        }
+      });
+    }
+
+    function toggleOtherDietDetails() {
+      if (!otherDietCheckbox || !otherDietDetails || !otherDietInput) return;
+
+      const shouldShow = otherDietCheckbox.checked;
+      otherDietDetails.hidden = !shouldShow;
+      otherDietInput.disabled = !shouldShow;
+      otherDietInput.required = shouldShow;
+
+      if (!shouldShow) {
+        otherDietInput.value = '';
+      }
+    }
+
+    if (guestSelect) {
+      guestSelect.addEventListener('change', renderAdditionalGuests);
+      renderAdditionalGuests();
+    }
+
+    if (otherDietCheckbox) {
+      otherDietCheckbox.addEventListener('change', toggleOtherDietDetails);
+      toggleOtherDietDetails();
+    }
+
     rsvpForm.addEventListener('submit', e => {
       e.preventDefault();
+
+      if (!rsvpForm.checkValidity()) {
+        rsvpForm.reportValidity();
+        return;
+      }
+
       const btn = rsvpForm.querySelector('.btn--primary');
-      btn.textContent = 'Sending…';
+      btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      // Simulate async send
-      setTimeout(() => {
+      const formData = new FormData(rsvpForm);
+      const body = new URLSearchParams(formData).toString();
+
+      fetch(rsvpForm.getAttribute('action') || '/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Form submission failed');
+        }
+
         rsvpForm.style.display = 'none';
         const success = document.getElementById('rsvp-success');
+        const successMessage = document.getElementById('rsvp-success-message');
+        const attendance = formData.get('attendance');
+
+        if (successMessage) {
+          successMessage.textContent = attendance === 'no'
+            ? "We've received your RSVP and are sorry you cannot make it. Thank you for letting us know."
+            : "We've received your RSVP and cannot wait to celebrate with you. See you in September!";
+        }
+
         if (success) {
           success.style.display = 'block';
           success.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-      }, 1200);
+      })
+      .catch(() => {
+        btn.textContent = 'Send My RSVP';
+        btn.disabled = false;
+        alert('Sorry, something went wrong while sending your RSVP. Please try again.');
+      });
+
+      return;
     });
   }
 
