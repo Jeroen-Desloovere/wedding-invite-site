@@ -17,17 +17,39 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Mobile nav toggle --- */
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks  = document.querySelector('.nav-links');
-  if (navToggle && navLinks) {
+  if (nav && navToggle && navLinks) {
+    const closeMobileNav = () => {
+      navLinks.classList.remove('open');
+      nav.classList.remove('menu-open');
+      document.body.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const openMobileNav = () => {
+      navLinks.classList.add('open');
+      nav.classList.add('menu-open');
+      document.body.classList.add('nav-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+    };
+
     navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
+      if (navLinks.classList.contains('open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
     });
+
     navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      a.addEventListener('click', closeMobileNav);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMobileNav();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 680) closeMobileNav();
     });
   }
 
@@ -77,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.04, rootMargin: '0px 0px 0px 0px' });
 
     fadeEls.forEach(el => observer.observe(el));
   } else {
