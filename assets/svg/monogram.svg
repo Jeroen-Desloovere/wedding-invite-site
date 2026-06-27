@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Outer arch frame -->
+  <path d="M30 200 L30 85 Q30 20 100 20 Q170 20 170 85 L170 200"
+        stroke="#9B1B30" stroke-width="1.5" fill="none"/>
+  <path d="M15 200 L15 82 Q15 5 100 5 Q185 5 185 82 L185 200"
+        stroke="#C9A96E" stroke-width="0.7" fill="none" opacity="0.5"/>
+  <!-- Heart at top -->
+  <path d="M100 28 C100 28 96 22 91 22 C86 22 82 26.5 82 32 C82 41 100 50 100 50 C100 50 118 41 118 32 C118 26.5 114 22 109 22 C104 22 100 28 100 28Z"
+        fill="#9B1B30" opacity="0.8"/>
+  <!-- N & J letters using elegant styling -->
+  <text x="100" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="300" fill="#6E1223" letter-spacing="2">N&amp;J</text>
+</svg>
