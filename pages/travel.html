@@ -131,6 +131,197 @@
       margin-bottom: 0.8rem;
     }
 
+    .route-guide {
+      background: rgba(253, 246, 238, 0.72);
+      border: 1px solid var(--divider);
+      margin: 2rem auto 0;
+      max-width: 900px;
+      padding: 1.6rem;
+    }
+
+    .route-guide__header {
+      max-width: 720px;
+      margin: 0 auto 1.2rem;
+      text-align: center;
+    }
+
+    .route-guide__header h3 {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      margin-bottom: 0.45rem;
+    }
+
+    .route-guide__header p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.72;
+    }
+
+    .route-warning {
+      align-items: center;
+      background: rgba(201, 169, 110, 0.13);
+      border-left: 3px solid var(--gold);
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, 1fr) auto;
+      margin: 0 auto 1.2rem;
+      max-width: 820px;
+      padding: 1rem 1.1rem;
+    }
+
+    .route-warning p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .route-warning strong {
+      color: var(--wine);
+      font-weight: 500;
+    }
+
+    .route-warning .route-actions {
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+
+    .route-warning .route-link {
+      border-color: rgba(110, 18, 35, 0.24);
+      color: var(--wine);
+      white-space: nowrap;
+    }
+
+    .route-warning .route-link:hover {
+      background: var(--wine);
+      border-color: var(--wine);
+      color: var(--champagne);
+    }
+
+    .route-reference-intro {
+      margin: 1.2rem auto 1rem;
+      max-width: 720px;
+      text-align: center;
+    }
+
+    .route-reference-intro h3 {
+      font-size: 1.16rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .route-reference-intro p {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.68;
+    }
+
+    .route-screenshots {
+      display: grid;
+      gap: 0.65rem;
+      grid-template-columns: 1fr;
+      margin: 0 auto;
+      max-width: 820px;
+    }
+
+    .route-shot {
+      background: rgba(253, 246, 238, 0.78);
+      border: 1px solid var(--divider);
+    }
+
+    .route-shot summary {
+      align-items: center;
+      color: var(--wine);
+      cursor: pointer;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      list-style: none;
+      padding: 1rem 1.15rem;
+    }
+
+    .route-shot summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .route-shot summary::after {
+      border-bottom: 1px solid currentColor;
+      border-right: 1px solid currentColor;
+      content: '';
+      display: block;
+      flex: 0 0 auto;
+      height: 0.5rem;
+      transform: rotate(45deg);
+      transition: transform 0.25s ease;
+      width: 0.5rem;
+    }
+
+    .route-shot[open] summary::after {
+      transform: rotate(225deg);
+    }
+
+    .route-shot__label {
+      min-width: 0;
+    }
+
+    .route-kicker {
+      color: var(--gold);
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    .route-shot__title {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.06rem;
+      line-height: 1.3;
+    }
+
+    .route-shot__body {
+      border-top: 1px solid var(--divider);
+      padding: 0.9rem;
+    }
+
+    .route-shot__body img {
+      border: 1px solid rgba(110, 18, 35, 0.1);
+      height: auto;
+      width: 100%;
+    }
+
+    .route-shot__body p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.68;
+      margin-top: 0.8rem;
+    }
+
+    .route-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .route-link {
+      border: 1px solid rgba(110, 18, 35, 0.22);
+      color: var(--wine);
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      line-height: 1.2;
+      padding: 0.55rem 0.65rem;
+      text-transform: uppercase;
+    }
+
+    .route-link:hover {
+      background: var(--wine);
+      border-color: var(--wine);
+      color: var(--champagne);
+    }
+
     .travel-note {
       background: rgba(201, 169, 110, 0.13);
       border-left: 3px solid var(--gold);
@@ -221,6 +412,26 @@
       .travel-list li,
       .travel-callout {
         padding: 1.25rem;
+      }
+
+      .route-guide {
+        padding: 1.1rem;
+      }
+
+      .route-warning {
+        grid-template-columns: 1fr;
+      }
+
+      .route-warning .route-actions {
+        justify-content: center;
+      }
+
+      .route-shot summary {
+        padding: 0.95rem 1rem;
+      }
+
+      .route-shot__body {
+        padding: 0.65rem;
       }
     }
   </style>
@@ -348,6 +559,7 @@
       <div class="travel-section__header">
         <span class="section-label">Getting to the Venue</span>
         <h2>Wedding-Day Transport</h2>
+        <p>We will help coordinate transport for guests who would rather not drive. The route screenshots are only relevant if you plan to drive yourself.</p>
       </div>
 
       <div class="travel-grid">
@@ -368,8 +580,69 @@
 
         <article class="travel-card">
           <h3>Venue Address</h3>
-          <p>Agroturizëm Gjepali is located at Rruga Elez Gjepali 1, Shijak 2022, Albania. The exact coordinates are 41°19'40"N 19°33'41"E. Navigation apps may lead you to a crossroads rather than the venue itself. When you reach the crossroads, turn into the side road and continue until the end. Public transport is not ideal for getting directly to the wedding venue, so taxis or a rental car are easier.</p>
+          <p>Agroturizëm Gjepali is located at Rruga Elez Gjepali 1, Shijak 2022, Albania. The exact coordinates are 41°19'40"N 19°33'41"E. Navigation apps may lead you to a crossroads rather than the venue itself. When you reach the crossroads, take the side road to the southwest and continue until the end. Public transport is not ideal for getting directly to the wedding venue, so taxis or a rental car are easier.</p>
         </article>
+      </div>
+
+      <div class="route-guide" aria-labelledby="recommended-route-title">
+        <div class="route-guide__header">
+          <span class="section-label">Driving Yourself?</span>
+          <h3 id="recommended-route-title">Recommended Route References</h3>
+          <p>These screenshots are only meant for guests driving themselves. The route may not be the fastest one Google Maps suggests, but it is the easier road to follow and avoids confusing smaller shortcuts.</p>
+        </div>
+
+        <div class="route-warning">
+          <p><strong>Use the pin, then compare the route.</strong> Open the venue in your navigation app, but check that the suggested route broadly matches the relevant screenshot below.</p>
+          <div class="route-actions">
+            <a class="route-link" href="https://www.google.com/maps/place/Agroturizem+Gjepali/@41.3280276,19.5613832,19.38z/data=!4m12!1m5!3m4!2zNDHCsDE5JzQwLjAiTiAxOcKwMzMnNDEuMCJF!8m2!3d41.327778!4d19.561389!3m5!1s0x134fd700582fe1f5:0xfe6b56d867e52b00!8m2!3d41.3279735!4d19.5614422!16s%2Fg%2F11yhk7x658?entry=ttu&amp;g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Open Venue Pin</a>
+          </div>
+        </div>
+
+        <div class="route-reference-intro">
+          <h3>Open the route that matches where you are coming from</h3>
+          <p>Each section includes the screenshot first, with a short note underneath. The final screenshot is a more detailed view of the last part of the route, which is the same whether you come from Tirana, the airport, or Durr&euml;s.</p>
+        </div>
+
+        <div class="route-screenshots" aria-label="Route screenshot references">
+          <details class="route-shot">
+            <summary>
+              <span class="route-shot__label">
+                <span class="route-kicker">Route from the east</span>
+                <span class="route-shot__title">From Tirana or Tirana Airport</span>
+              </span>
+            </summary>
+            <div class="route-shot__body">
+              <img src="../assets/routes/tirana-airport-to-gjepali.png" alt="Google Maps screenshot showing the recommended driving route from Tirana or Tirana Airport toward Agroturizem Gjepali via Vore, Maminas, Shijak, and Gjepalaj." loading="lazy">
+              <p>If you are leaving from the airport, first head south toward the Tirana side before joining the route west. From Tirana, head out on SH2 in the direction of Durr&euml;s; you will then join the route shown in the screenshot toward Shijak and Gjepalaj.</p>
+            </div>
+          </details>
+
+          <details class="route-shot">
+            <summary>
+              <span class="route-shot__label">
+                <span class="route-kicker">Route from the coast</span>
+                <span class="route-shot__title">From Durr&euml;s Beach</span>
+              </span>
+            </summary>
+            <div class="route-shot__body">
+              <img src="../assets/routes/durres-beach-to-gjepali.png" alt="Google Maps screenshot showing the recommended driving route from the Durres beach area toward Agroturizem Gjepali via Xhafzotaj, SH84, Shijak, and Gjepalaj." loading="lazy">
+              <p>If you are staying by the beach in Durr&euml;s, use this screenshot as the visual reference for leaving the seafront inland and approaching Shijak. From Shijak, the final part is the same as for everyone else.</p>
+            </div>
+          </details>
+
+          <details class="route-shot">
+            <summary>
+              <span class="route-shot__label">
+                <span class="route-kicker">Last part for everyone</span>
+                <span class="route-shot__title">Final Approach to the Venue</span>
+              </span>
+            </summary>
+            <div class="route-shot__body">
+              <img src="../assets/routes/final-approach-to-gjepali.png" alt="Google Maps screenshot showing the final approach from Shijak through Gjepalaj to Agroturizem Gjepali." loading="lazy">
+              <p>This is the most important visual reference. Once you are near Shijak, continue through Gjepalaj toward the venue. If your app only brings you to a crossroads, take the side road to the southwest and continue to the end.</p>
+            </div>
+          </details>
+        </div>
       </div>
 
     </section>
